@@ -1,6 +1,3 @@
-
-raw
-Sunnah tracker · HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,31 +8,31 @@ Sunnah tracker · HTML
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Segoe UI', sans-serif; background: linear-gradient(135deg, #0f2a5e 0%, #1a3a6b 50%, #0d2247 100%); min-height: 100vh; padding: 12px 10px 30px; }
- 
+
 .header { text-align: center; padding: 14px 0 10px; }
 .header-icon { font-size: 40px; margin-bottom: 6px; }
 .header h1 { color: #ffd700; font-size: 20px; font-weight: 800; text-shadow: 0 2px 6px rgba(0,0,0,.5); }
 .header .sub { color: #a8c8ff; font-size: 12px; margin-top: 4px; }
- 
+
 .name-banner { background: linear-gradient(90deg,#ffd700,#ffb300); color: #0f2a5e; font-size: 17px; font-weight: 800; text-align: center; padding: 10px 16px; border-radius: 14px; margin: 8px 0 14px; box-shadow: 0 4px 12px rgba(255,215,0,.3); }
- 
+
 .week-selector { display: flex; align-items: center; justify-content: center; gap: 6px; margin-bottom: 12px; flex-wrap: wrap; }
 .week-btn { padding: 7px 12px; background: rgba(255,255,255,.1); color: #a8c8ff; border: 1.5px solid rgba(255,255,255,.18); border-radius: 20px; font-size: 11px; font-weight: 600; cursor: pointer; text-align:center; line-height:1.4; }
 .week-btn.active { background: #ffd700; color: #0f2a5e; border-color: #ffd700; font-weight:800; }
 .week-label { color: #ffd700; font-size: 13px; font-weight: 700; text-align:center; margin-bottom: 6px; }
- 
+
 /* NEW WEEK BADGE */
 .new-week-badge { display:inline-block; background:#ff6b35; color:white; font-size:10px; font-weight:800; padding:2px 7px; border-radius:10px; margin-left:6px; vertical-align:middle; }
- 
+
 .category-card { background: rgba(255,255,255,.97); border-radius: 18px; padding: 14px 12px 10px; margin-bottom: 12px; box-shadow: 0 4px 16px rgba(0,0,0,.2); }
 .cat-title { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 800; color: #0f2a5e; margin-bottom: 12px; }
 .cat-icon { font-size: 20px; }
 .cat-score { margin-left: auto; font-size: 12px; font-weight: 700; color: #1a3a6b; background: #e8f0ff; padding: 3px 9px; border-radius: 12px; white-space:nowrap; }
- 
+
 .day-header { display: grid; grid-template-columns: 1fr repeat(7,30px); gap: 2px; margin-bottom: 5px; padding: 0 1px; }
 .day-lbl { text-align: center; font-size: 9px; font-weight: 700; color: #555; padding: 2px 0; }
 .day-lbl.today-h { color: #1a3a6b; background: #dce8ff; border-radius: 5px; }
- 
+
 .sunnah-row { display: grid; grid-template-columns: 1fr repeat(7,30px); gap: 2px; align-items: center; margin-bottom: 4px; padding: 3px 1px; border-radius: 10px; }
 .sunnah-row:nth-child(even) { background: #f7f9ff; }
 .sunnah-name { font-size: 11px; font-weight: 600; color: #222; padding-right: 4px; line-height: 1.3; }
@@ -44,20 +41,20 @@ body { font-family: 'Segoe UI', sans-serif; background: linear-gradient(135deg, 
 .tick-btn.today-col { border-color: #3b82f6; background: #eff6ff; }
 .tick-btn.done.today-col { background: #16a34a; border-color: #166534; }
 .tick-btn:active { transform: scale(.88); }
- 
+
 .progress-bar-wrap { margin-top: 10px; }
 .progress-lbl { display: flex; justify-content: space-between; font-size: 10px; color: #555; margin-bottom: 3px; }
 .progress-bar { height: 7px; background: #e5e7eb; border-radius: 4px; overflow: hidden; }
 .progress-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg,#22c55e,#16a34a); transition: width .4s; }
- 
+
 .week-total-card { background: rgba(255,255,255,.12); border: 1.5px solid rgba(255,215,0,.4); border-radius: 16px; padding: 12px 16px; margin-bottom: 14px; text-align: center; }
 .total-num { font-size: 34px; font-weight: 800; color: #ffd700; }
 .total-lbl { font-size: 12px; color: #a8c8ff; margin-top: 3px; }
 .total-max { font-size: 11px; color: #ffd700; opacity: .8; }
 .stars-row { display: flex; justify-content: center; gap: 3px; margin: 7px 0 0; flex-wrap: wrap; }
- 
+
 .msg-box { background: rgba(255,255,255,.1); border-radius: 12px; padding: 11px 14px; text-align: center; color: #ffd700; font-size: 13px; font-weight: 600; margin-bottom: 14px; line-height: 1.5; }
- 
+
 /* ── DUAS SECTION ── */
 .duas-section { background: rgba(255,255,255,.97); border-radius: 18px; padding: 0; margin-bottom: 14px; box-shadow: 0 4px 16px rgba(0,0,0,.2); overflow:hidden; }
 .duas-header { background: linear-gradient(135deg,#0f2a5e,#1a3a6b); padding: 14px 16px; display:flex; align-items:center; gap:10px; }
@@ -70,80 +67,80 @@ body { font-family: 'Segoe UI', sans-serif; background: linear-gradient(135deg, 
 .dua-arabic-text { font-size:17px; font-weight:700; color:#0f2a5e; direction:rtl; text-align:right; line-height:1.8; margin-bottom:4px; font-family:'Scheherazade New','Amiri','Times New Roman',serif; }
 .dua-transliteration { font-size:11px; color:#444; font-style:italic; line-height:1.5; margin-bottom:3px; }
 .dua-meaning { font-size:11px; color:#2d6a4f; font-weight:600; line-height:1.4; }
- 
+
 .loading-screen { position: fixed; inset: 0; background: linear-gradient(135deg,#0f2a5e,#1a3a6b); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 999; }
 .loading-screen .spin { font-size: 50px; animation: spin 1.2s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 .loading-screen p { color: #a8c8ff; font-size: 14px; margin-top: 14px; }
- 
+
 .error-screen { position: fixed; inset: 0; background: #0f2a5e; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px; z-index: 999; text-align: center; }
 .error-screen .big { font-size: 50px; margin-bottom: 12px; }
 .error-screen h2 { color: #ffd700; font-size: 18px; font-weight: 700; margin-bottom: 8px; }
 .error-screen p { color: #a8c8ff; font-size: 13px; line-height: 1.6; }
- 
+
 .saved-badge { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #22c55e; color: white; font-size: 13px; font-weight: 700; padding: 10px 22px; border-radius: 24px; box-shadow: 0 4px 16px rgba(0,0,0,.3); opacity: 0; transition: opacity .3s; z-index: 100; pointer-events: none; white-space:nowrap; }
 .saved-badge.show { opacity: 1; }
- 
+
 .week-intro { background: rgba(255,255,255,.1); border: 1.5px solid rgba(255,215,0,.35); border-radius: 14px; padding: 10px 14px; margin-bottom: 12px; }
 .week-intro-title { color: #ffd700; font-size: 13px; font-weight: 800; margin-bottom: 4px; }
 .week-intro-body { color: #a8c8ff; font-size: 11.5px; line-height: 1.5; }
 </style>
 </head>
 <body>
- 
+
 <div class="loading-screen" id="loadingScreen">
   <div class="spin">🌟</div>
   <p>Loading your tracker...</p>
 </div>
- 
+
 <div class="error-screen" id="errorScreen" style="display:none;">
   <div class="big">😕</div>
   <h2>Name not found!</h2>
   <p>This link doesn't match any student.<br>Please ask your camp teacher for the correct link.</p>
 </div>
- 
+
 <div id="mainContent" style="display:none;">
   <div class="header">
     <div class="header-icon">⛺</div>
     <h1>🌟 Sunnah Tracker 🌟</h1>
     <div class="sub">Deen &amp; Fun Camp — 29 June – 31 July 2026</div>
   </div>
- 
+
   <div class="name-banner" id="nameBanner">Loading...</div>
- 
+
   <div class="week-selector" id="weekSelector"></div>
   <div class="week-label" id="weekLabel"></div>
   <div class="week-intro" id="weekIntro"></div>
- 
+
   <div class="week-total-card">
     <div class="total-num" id="totalTicks">0</div>
     <div class="total-lbl">Sunnahs completed this week ✨</div>
     <div class="total-max" id="totalMax">out of 0 possible</div>
     <div class="stars-row" id="starsRow"></div>
   </div>
- 
+
   <div id="trackersArea"></div>
- 
+
   <!-- ── FULL DUAS SECTION (always visible) ── -->
   <div class="duas-section">
     <div class="duas-header">
       <div>
-        <h2>📖 Daily Duas</h2>
-        <div class="sub">Roz in duas ko parhen aur practice karen! 🤲</div>
+        <h2>📖 Daily Duas — پوری کیمپ کی دعائیں</h2>
+        <div class="sub">Har roz in duas ko parho aur practice karo! 🤲</div>
       </div>
     </div>
- 
+
     <!-- EATING -->
     <div class="dua-category">
       <div class="dua-cat-title">🍽️ Eating Duas</div>
- 
+
       <div class="dua-card">
         <div class="dua-occasion">🍽️ Before Eating — کھانے سے پہلے</div>
         <div class="dua-arabic-text">بِسْمِ اللّٰهِ وَعَلٰى بَرَكَةِ اللّٰهِ</div>
         <div class="dua-transliteration">Bismillahi wa 'ala barakatillah</div>
         <div class="dua-meaning">In the name of Allah and with the blessings of Allah</div>
       </div>
- 
+
       <div class="dua-card">
         <div class="dua-occasion">🍽️ After Eating — کھانے کے بعد</div>
         <div class="dua-arabic-text">اَلْحَمْدُ لِلّٰهِ الَّذِيْ أَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مِنَ الْمُسْلِمِيْنَ</div>
@@ -151,18 +148,18 @@ body { font-family: 'Segoe UI', sans-serif; background: linear-gradient(135deg, 
         <div class="dua-meaning">Praise be to Allah who fed us, gave us drink, and made us Muslims</div>
       </div>
     </div>
- 
+
     <!-- WASHROOM -->
     <div class="dua-category">
       <div class="dua-cat-title">🚽 Washroom Duas</div>
- 
+
       <div class="dua-card">
         <div class="dua-occasion">🚽 Before Entering — داخل ہونے سے پہلے</div>
         <div class="dua-arabic-text">اَللّٰهُمَّ إِنِّيْ أَعُوْذُ بِكَ مِنَ الْخُبُثِ وَالْخَبَائِثِ</div>
         <div class="dua-transliteration">Allahumma inni a'oozu bika minal khubuthi wal khabaa'ith</div>
         <div class="dua-meaning">O Allah, I seek Your protection from evil male and female jinns</div>
       </div>
- 
+
       <div class="dua-card">
         <div class="dua-occasion">🚽 After Leaving — نکلنے کے بعد</div>
         <div class="dua-arabic-text">غُفْرَانَكَ</div>
@@ -170,25 +167,25 @@ body { font-family: 'Segoe UI', sans-serif; background: linear-gradient(135deg, 
         <div class="dua-meaning">I seek Your forgiveness (O Allah)</div>
       </div>
     </div>
- 
+
     <!-- HOME / TRAVELING -->
     <div class="dua-category">
       <div class="dua-cat-title">🏠 Home & Traveling Duas</div>
- 
+
       <div class="dua-card">
         <div class="dua-occasion">🏠 Leaving Home — گھر سے نکلتے وقت</div>
         <div class="dua-arabic-text">بِسْمِ اللّٰهِ تَوَكَّلْتُ عَلَى اللّٰهِ وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللّٰهِ</div>
         <div class="dua-transliteration">Bismillahi tawakkaltu 'alallah, la hawla wala quwwata illa billah</div>
         <div class="dua-meaning">In the name of Allah, I trust in Allah. There is no power except with Allah</div>
       </div>
- 
+
       <div class="dua-card">
         <div class="dua-occasion">🏠 Entering Home — گھر میں داخل ہوتے وقت</div>
         <div class="dua-arabic-text">اَللّٰهُمَّ إِنِّيْ أَسْأَلُكَ خَيْرَ الْمَوْلَجِ وَخَيْرَ الْمَخْرَجِ</div>
         <div class="dua-transliteration">Allahumma inni as'aluka khairal mawliji wa khairal makhraji</div>
         <div class="dua-meaning">O Allah, I ask You for the best of entering and the best of leaving</div>
       </div>
- 
+
       <div class="dua-card">
         <div class="dua-occasion">🚗 Before Riding / Traveling — سواری سے پہلے</div>
         <div class="dua-arabic-text">سُبْحَانَ الَّذِيْ سَخَّرَ لَنَا هٰذَا وَمَا كُنَّا لَهُ مُقْرِنِيْنَ</div>
@@ -196,32 +193,32 @@ body { font-family: 'Segoe UI', sans-serif; background: linear-gradient(135deg, 
         <div class="dua-meaning">Glory to Him who has subjected this to us, for we could never have done it ourselves</div>
       </div>
     </div>
- 
+
     <!-- WUDU -->
     <div class="dua-category">
       <div class="dua-cat-title">💧 Wudu Duas</div>
- 
+
       <div class="dua-card">
         <div class="dua-occasion">💧 Before Wudu — وضو سے پہلے</div>
         <div class="dua-arabic-text">بِسْمِ اللّٰهِ</div>
         <div class="dua-transliteration">Bismillah</div>
         <div class="dua-meaning">In the name of Allah</div>
       </div>
- 
+
       <div class="dua-card">
         <div class="dua-occasion">💧 After Wudu &amp; Bath — 1️⃣ Kalima Shahadat</div>
         <div class="dua-arabic-text">أَشْهَدُ أَنْ لَّا إِلٰهَ إِلَّا اللّٰهُ وَحْدَهُ لَا شَرِيْكَ لَهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ</div>
         <div class="dua-transliteration">Ashhadu alla ilaha illallahu wahdahu la sharika lahu wa ashhadu anna Muhammadan 'abduhu wa rasuluh</div>
         <div class="dua-meaning">I bear witness that there is no god but Allah alone, and that Muhammad ﷺ is His servant and messenger</div>
       </div>
- 
+
       <div class="dua-card">
         <div class="dua-occasion">💧 After Wudu &amp; Bath — 2️⃣ Allahumma Inni</div>
         <div class="dua-arabic-text">اَللّٰهُمَّ اجْعَلْنِيْ مِنَ التَّوَّابِيْنَ وَاجْعَلْنِيْ مِنَ الْمُتَطَهِّرِيْنَ</div>
         <div class="dua-transliteration">Allahumma ij'alni minat tawwabeena waj'alni minal mutatahhireen</div>
         <div class="dua-meaning">O Allah, make me among those who repent and among those who purify themselves</div>
       </div>
- 
+
       <div class="dua-card">
         <div class="dua-occasion">💧 After Wudu &amp; Bath — 3️⃣ Subhanaka Allahumma</div>
         <div class="dua-arabic-text">سُبْحَانَكَ اللّٰهُمَّ وَبِحَمْدِكَ أَشْهَدُ أَنْ لَّا إِلٰهَ إِلَّا أَنْتَ أَسْتَغْفِرُكَ وَأَتُوْبُ إِلَيْكَ</div>
@@ -229,46 +226,46 @@ body { font-family: 'Segoe UI', sans-serif; background: linear-gradient(135deg, 
         <div class="dua-meaning">Glory be to You O Allah, I bear witness there is no god but You, I seek Your forgiveness and repent to You</div>
       </div>
     </div>
- 
+
     <!-- SLEEP -->
     <div class="dua-category">
       <div class="dua-cat-title">😴 Sleeping &amp; Waking Up Duas</div>
- 
+
       <div class="dua-card">
         <div class="dua-occasion">😴 Before Sleeping — سونے سے پہلے</div>
         <div class="dua-arabic-text">اَللّٰهُمَّ بِاسْمِكَ أَمُوْتُ وَأَحْيَا</div>
         <div class="dua-transliteration">Allahumma bismika amootu wa ahya</div>
         <div class="dua-meaning">O Allah, in Your name I die and I live</div>
       </div>
- 
+
       <div class="dua-card">
         <div class="dua-occasion">😴 Before Sleeping — کلمہ شہادت</div>
         <div class="dua-arabic-text">أَشْهَدُ أَنْ لَّا إِلٰهَ إِلَّا اللّٰهُ وَحْدَهُ لَا شَرِيْكَ لَهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ</div>
         <div class="dua-transliteration">Ashhadu alla ilaha illallahu wahdahu la sharika lahu wa ashhadu anna Muhammadan 'abduhu wa rasuluh</div>
         <div class="dua-meaning">I bear witness there is no god but Allah alone, and Muhammad ﷺ is His servant and messenger</div>
       </div>
- 
+
       <div class="dua-card">
         <div class="dua-occasion">😴 Before Sleeping — سورۃ الاخلاص</div>
         <div class="dua-arabic-text">قُلْ هُوَ اللّٰهُ أَحَدٌ ۚ اَللّٰهُ الصَّمَدُ ۚ لَمْ يَلِدْ وَلَمْ يُوْلَدْ ۚ وَلَمْ يَكُنْ لَّهُ كُفُوًا أَحَدٌ</div>
         <div class="dua-transliteration">Qul huwallahu ahad. Allahus samad. Lam yalid walam yoolad. Walam yakun lahu kufuwan ahad.</div>
         <div class="dua-meaning">Say: He is Allah, the One. Allah, the Eternal Refuge. He neither begets nor is born. Nor is there any equal to Him</div>
       </div>
- 
+
       <div class="dua-card">
         <div class="dua-occasion">😴 Before Sleeping — سورۃ الفلق</div>
         <div class="dua-arabic-text">قُلْ أَعُوْذُ بِرَبِّ الْفَلَقِ ۚ مِنْ شَرِّ مَا خَلَقَ ۚ وَمِنْ شَرِّ غَاسِقٍ إِذَا وَقَبَ ۚ وَمِنْ شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ ۚ وَمِنْ شَرِّ حَاسِدٍ إِذَا حَسَدَ</div>
         <div class="dua-transliteration">Qul a'oozu bi rabbil falaq. Min sharri ma khalaq. Wa min sharri ghasiqin iza waqab. Wa min sharrin naffasati fil 'uqad. Wa min sharri hasidin iza hasad.</div>
         <div class="dua-meaning">Say: I seek refuge in the Lord of the daybreak, from the evil of what He created, and from the evil of darkness when it settles, and from the evil of those who blow on knots, and from the evil of an envier when he envies</div>
       </div>
- 
+
       <div class="dua-card">
         <div class="dua-occasion">😴 Before Sleeping — سورۃ الناس</div>
         <div class="dua-arabic-text">قُلْ أَعُوْذُ بِرَبِّ النَّاسِ ۚ مَلِكِ النَّاسِ ۚ إِلٰهِ النَّاسِ ۚ مِنْ شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ۚ الَّذِيْ يُوَسْوِسُ فِيْ صُدُوْرِ النَّاسِ ۚ مِنَ الْجِنَّةِ وَالنَّاسِ</div>
         <div class="dua-transliteration">Qul a'oozu bi rabbin nas. Malikin nas. Ilahin nas. Min sharril waswaasil khannas. Allazi yuwaswisu fi sudoorin nas. Minal jinnati wan nas.</div>
         <div class="dua-meaning">Say: I seek refuge in the Lord of mankind, the King of mankind, the God of mankind, from the evil of the retreating whisperer, who whispers in the hearts of mankind, from among the jinn and mankind</div>
       </div>
- 
+
       <div class="dua-card">
         <div class="dua-occasion">☀️ After Waking Up — جاگنے کے بعد</div>
         <div class="dua-arabic-text">اَلْحَمْدُ لِلّٰهِ الَّذِيْ أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُوْرُ</div>
@@ -276,23 +273,23 @@ body { font-family: 'Segoe UI', sans-serif; background: linear-gradient(135deg, 
         <div class="dua-meaning">Praise be to Allah who gave us life after death, and to Him is the resurrection</div>
       </div>
     </div>
- 
+
     <div style="padding:10px 14px 14px;">
       <div style="background:#e8f5e9;border-radius:10px;padding:10px 12px;text-align:center;font-size:12px;color:#1a472a;font-weight:600;line-height:1.6;">
-        🤲 Roz in duaon ko parhen — practice karte karte yaad ho jaengi! In sha Allah ✨
+        🤲 Roz in duaon ko parho — practice karte karte yaad ho jaengi! In sha Allah ✨
       </div>
     </div>
   </div>
   <!-- end duas section -->
- 
+
 </div><!-- end mainContent -->
- 
+
 <div class="saved-badge" id="savedBadge">✅ Saved!</div>
- 
+
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getDatabase, ref, set, onValue, get } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
- 
+
 const firebaseConfig = {
   apiKey: "AIzaSyDpJATiYye-RiKj2kAKeEPxquYvOiVr3RQ",
   authDomain: "deenfuncamp.firebaseapp.com",
@@ -304,7 +301,7 @@ const firebaseConfig = {
 };
 const app = initializeApp(firebaseConfig);
 const db  = getDatabase(app);
- 
+
 // ── All categories defined once ──────────────────
 const ALL_CATEGORIES = [
   {
@@ -317,7 +314,7 @@ const ALL_CATEGORIES = [
   },
   {
     id: 'traveling', icon: '🚗', title: 'Going Out & Traveling Sunnahs',
-    sunnahs: ['Say Salam before leaving home','Leave home with right foot','Read dua while leaving home','Read dua before riding','Enter home with right foot','Read dua after entering home']
+    sunnahs: ['Say Salam before leaving home','Leave home with right foot','Read dua while leaving home','Read dua before riding','Enter home with left foot','Read dua after entering home']
   },
   {
     id: 'wudu', icon: '💧', title: 'Wudu Sunnahs',
@@ -328,7 +325,7 @@ const ALL_CATEGORIES = [
     sunnahs: ['Read dua before sleeping','Read Kalima before sleeping','Do wudu before sleeping','Sleep on the right side','Recite Surah Ikhlas, Falaq &amp; Nas','Dust the bed before sleeping','Read dua after waking up']
   }
 ];
- 
+
 // ── Progressive week plan ───────────────────────
 // Week 1: eating only
 // Week 2: eating + washroom
@@ -342,17 +339,17 @@ const WEEK_CATS = [
   ['eating','washroom','traveling','wudu'],
   ['eating','washroom','traveling','wudu','sleeping']
 ];
- 
+
 const WEEK_INTROS = [
-  { title:'Week 1 — Eating Sunnahs 🍽️', body:'Is hafte sirf khaane ki sunnahs seekhni hain! Har roz khaane se pehle aur baad ki dua parhen aur baaki adaab bhi follow karen. 😊' },
-  { title:'Week 2 — Washroom Sunnahs Added 🚿', body:'Bohat acha kiya Week 1 mein! Ab washroom ki sunnahs bhi add ho gayi hain. Pehle wali continue karen aur nai bhi seekhen! 💪' },
-  { title:'Week 3 — Going Out & Traveling Sunnahs 🚗', body:'MashaAllah! Aaj se ghar se nikalne aur savaari ki sunnahs bhi shamil ho gayi hain. Teen categories — aap hero hain! 🌟' },
-  { title:'Week 4 — Wudu Sunnahs Added 💧', body:'Almost full! Wudu ki sunnahs bhi aa gayi hain. Charon categories ko rozana follow karen — Allah ko yeh bahut pasand hai! 🤲' },
-  { title:'Week 5 — Sleeping &amp; Waking Up Added! 😴🏆', body:'Last week aur nai category! Sone aur jaagne ki sunnahs bhi aa gayi hain. Puri 5 categories complete karen aur Sunnah Champion bano! 🌟' }
+  { title:'Week 1 — Eating Sunnahs 🍽️', body:'Is hafte sirf khaane ki sunnahs seekhni hain! Har roz khaane se pehle aur baad ki dua parho aur baaki adaab bhi follow karo. 😊' },
+  { title:'Week 2 — Washroom Sunnahs Added 🚿', body:'Bohat acha kiya Week 1 mein! Ab washroom ki sunnahs bhi add ho gayi hain. Pehle wali continue karo aur nai bhi seekho! 💪' },
+  { title:'Week 3 — Going Out & Traveling Sunnahs 🚗', body:'MashaAllah! Aaj se ghar se nikalne aur savaari ki sunnahs bhi shamil ho gayi hain. Teen categories — tu hero hai! 🌟' },
+  { title:'Week 4 — Wudu Sunnahs Added 💧', body:'Almost full! Wudu ki sunnahs bhi aa gayi hain. Charon categories ko rozana follow karo — Allah ko yeh bahut pasand hai! 🤲' },
+  { title:'Week 5 — Sleeping &amp; Waking Up Added! 😴🏆', body:'Last week aur nai category! Sone aur jaagne ki sunnahs bhi aa gayi hain. Puri 5 categories complete karo aur Sunnah Champion banen! 🌟' }
 ];
- 
+
 const DAYS = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
- 
+
 // ── Camp weeks (29 June – 31 July 2026) ─────────
 const WEEKS = [];
 { const s=new Date(2026,5,29);
@@ -363,7 +360,7 @@ const WEEKS = [];
     WEEKS.push({num:w+1,start:ws,end:we>cap?cap:we});
   }
 }
- 
+
 function weekKey(w){ return 'week'+w.num; }
 function todayWeekIndex(){
   const t=new Date();
@@ -373,13 +370,13 @@ function todayWeekIndex(){
 function fmt2(n){ return String(n).padStart(2,'0'); }
 function fmtDate(d){ return `${fmt2(d.getDate())}/${fmt2(d.getMonth()+1)}`; }
 function todayDayIndex(){ const d=new Date().getDay(); return d===0?6:d-1; }
- 
+
 // ── Identify student from URL ────────────────────
 const params = new URLSearchParams(location.search);
 const studentKey = params.get('child')||params.get('student')||params.get('s')||'';
- 
+
 let studentName='', sunnahData={}, currentWeekIdx=0;
- 
+
 async function init() {
   if(!studentKey){ showError(); return; }
   try {
@@ -387,62 +384,70 @@ async function init() {
     if(!snap.exists()){ showError(); return; }
     studentName=snap.val().name||studentKey;
   } catch(e){ showError(); return; }
- 
+
   onValue(ref(db,'sunnahs/'+studentKey), snap=>{
     sunnahData=snap.val()||{};
     renderAll();
   });
- 
-  document.getElementById('nameBanner').textContent='👋 As-salamu Alaykum, '+studentName+'!';
+
+  document.getElementById('nameBanner').textContent='👋 Assalamu Alaikum, '+studentName+'!';
   document.getElementById('loadingScreen').style.display='none';
   document.getElementById('mainContent').style.display='block';
   currentWeekIdx=todayWeekIndex();
   buildWeekSelector();
 }
- 
+
 function showError(){
   document.getElementById('loadingScreen').style.display='none';
   document.getElementById('errorScreen').style.display='flex';
 }
- 
+
 function buildWeekSelector(){
   const el=document.getElementById('weekSelector');
   const todayWk=todayWeekIndex();
+  // Only show weeks up to current week — future weeks hidden
   el.innerHTML=WEEKS.map((w,i)=>{
+    if(i>todayWk) return '';
     const isNew = i>0 && WEEK_CATS[i].length>WEEK_CATS[i-1].length;
+    const isPast = i<todayWk;
     return `<button class="week-btn ${i===currentWeekIdx?'active':''}" onclick="selectWeek(${i})">
-      Week ${w.num}${isNew?'<span class="new-week-badge">NEW+</span>':''}<br>
-      <span style="font-size:9px;font-weight:500;">${fmtDate(w.start)}–${fmtDate(w.end)}</span>
+      Week ${w.num}${isNew?'<span class="new-week-badge">NEW+</span>':''}${isPast?'<span class="new-week-badge" style="background:#888;">done</span>':''}<br>
+      <span style="font-size:9px;font-weight:500;">${fmtDate(w.start)}&ndash;${fmtDate(w.end)}</span>
     </button>`;
   }).join('');
 }
- 
+
 window.selectWeek=function(idx){
   currentWeekIdx=idx;
   document.querySelectorAll('.week-btn').forEach((b,i)=>b.classList.toggle('active',i===idx));
   renderAll();
 };
- 
+
 function getVal(weekIdx,catId,si,di){
   const wk=weekKey(WEEKS[weekIdx]);
   return !!(sunnahData[wk]&&sunnahData[wk][catId]&&sunnahData[wk][catId][si]&&sunnahData[wk][catId][si][di]);
 }
- 
+
 window.toggleTick=function(catId,si,di){
+  // Only allow ticking on the current week
+  const todayWk=todayWeekIndex();
+  if(currentWeekIdx!==todayWk) return; // past week — read only
+  // Only allow ticking on today's day column
+  if(di!==todayDayIndex()) return; // not today — block
   const wk=weekKey(WEEKS[currentWeekIdx]);
   const cur=getVal(currentWeekIdx,catId,si,di);
   set(ref(db,`sunnahs/${studentKey}/${wk}/${catId}/${si}/${di}`),cur?null:true);
   showSaved();
 };
- 
+
 function showSaved(){
   const b=document.getElementById('savedBadge');
   b.classList.add('show');
   setTimeout(()=>b.classList.remove('show'),1400);
 }
- 
+
 function weekActiveCats(weekIdx){ return WEEK_CATS[weekIdx].map(id=>ALL_CATEGORIES.find(c=>c.id===id)); }
- 
+
 function countWeekTicks(weekIdx){
   let t=0; const wk=weekKey(WEEKS[weekIdx]);
   weekActiveCats(weekIdx).forEach(cat=>{
@@ -451,9 +456,9 @@ function countWeekTicks(weekIdx){
   });
   return t;
 }
- 
+
 function maxWeekTicks(weekIdx){ return weekActiveCats(weekIdx).reduce((a,c)=>a+c.sunnahs.length,0)*7; }
- 
+
 function countCatTicks(weekIdx,catId){
   let t=0; const wk=weekKey(WEEKS[weekIdx]);
   const cat=ALL_CATEGORIES.find(c=>c.id===catId);
@@ -461,49 +466,50 @@ function countCatTicks(weekIdx,catId){
   cat.sunnahs.forEach((_,si)=>{ const sd=cd[si]||{}; for(let d=0;d<7;d++) if(sd[d]) t++; });
   return t;
 }
- 
+
 function motivationMsg(ticks,max){
   const p=max>0?ticks/max:0;
-  if(p>=1)  return '🏆 MashaAllah! Perfect week! Aap Sunnah champion hain!';
-  if(p>=.8) return '⭐ Bilkul perfect ke qareeb! Jaari rakhen, aap zabardast kar rahe hain!';
-  if(p>=.6) return '💪 Great effort! Allah ko choti magar pakki aadat bahut pasand hai!';
-  if(p>=.4) return '🌱 Good start! In khoobsoorat Sunnahs ki practice karen!';
-  if(p>=.2) return '🤲 Every tick counts! Kal thoda aur koshish karen!';
+  if(p>=1)  return '🏆 MashaAllah! Perfect week! You are a Sunnah champion!';
+  if(p>=.8) return '⭐ So close to perfect! Keep it up, you are doing amazing!';
+  if(p>=.6) return '💪 Great effort! Allah loves consistent small deeds!';
+  if(p>=.4) return '🌱 Good start! Keep practicing these beautiful Sunnahs!';
+  if(p>=.2) return '🤲 Every tick counts! Try a little more tomorrow!';
   if(ticks>0) return '😊 You have started! Add more Sunnahs each day!';
-  return '🌙 Ready? Apni pehli Sunnah tick karen and earn your stars!';
+  return '🌙 Ready? Tick your first Sunnah and earn your stars!';
 }
- 
+
 function renderAll(){
   const wi=currentWeekIdx, week=WEEKS[wi];
   const cats=weekActiveCats(wi);
   const total=countWeekTicks(wi), maxT=maxWeekTicks(wi);
   const todayIdx=todayDayIndex();
+  const todayWkIdx=todayWeekIndex();
   const isThisWeek=new Date()>=week.start&&new Date()<=week.end;
   const wk=weekKey(week);
- 
+
   document.getElementById('weekLabel').textContent=`📅 Week ${week.num}: ${fmtDate(week.start)} – ${fmtDate(week.end)}`;
- 
+
   // Intro box
   const intro=WEEK_INTROS[wi];
   document.getElementById('weekIntro').innerHTML=`<div class="week-intro-title">${intro.title}</div><div class="week-intro-body">${intro.body}</div>`;
- 
+
   // Totals
   document.getElementById('totalTicks').textContent=total;
   document.getElementById('totalMax').textContent=`out of ${maxT} possible`;
   const sc=Math.floor(total/maxT*10);
   document.getElementById('starsRow').innerHTML=Array(10).fill(0).map((_,i)=>
     `<span style="font-size:${i<sc?'22':'15'}px;opacity:${i<sc?1:.2};">⭐</span>`).join('');
- 
+
   // Trackers
   const area=document.getElementById('trackersArea');
   area.innerHTML='';
- 
+
   cats.forEach(cat=>{
     const catTicks=countCatTicks(wi,cat.id);
     const catMax=cat.sunnahs.length*7;
     const catPct=Math.round(catTicks/catMax*100);
     const wd=(sunnahData[wk]||{})[cat.id]||{};
- 
+
     const card=document.createElement('div');
     card.className='category-card';
     let html=`<div class="cat-title"><span class="cat-icon">${cat.icon}</span>${cat.title}<span class="cat-score">${catTicks}/${catMax}</span></div>`;
@@ -514,8 +520,12 @@ function renderAll(){
       const sd=wd[si]||{};
       html+=`<div class="sunnah-row"><div class="sunnah-name">${sunnah}</div>`;
       DAYS.forEach((_,di)=>{
-        const done=!!(sd[di]); const it=isThisWeek&&di===todayIdx;
-        html+=`<button class="tick-btn${done?' done':''}${it?' today-col':''}" onclick="toggleTick('${cat.id}',${si},${di})">${done?'✓':''}</button>`;
+        const done=!!(sd[di]);
+        const it=isThisWeek&&di===todayIdx;
+        const isCurrentWeek=(currentWeekIdx===todayWkIdx);
+        const isClickable=isCurrentWeek&&di===todayIdx;
+        const disabledStyle=!isClickable?'opacity:0.4;cursor:not-allowed;':'';
+        html+=`<button class="tick-btn${done?' done':''}${it?' today-col':''}" style="${disabledStyle}" onclick="toggleTick('${cat.id}',${si},${di})">${done?'✓':''}</button>`;
       });
       html+=`</div>`;
     });
@@ -523,13 +533,13 @@ function renderAll(){
     card.innerHTML=html;
     area.appendChild(card);
   });
- 
+
   const msg=document.createElement('div');
   msg.className='msg-box';
   msg.textContent=motivationMsg(total,maxT);
   area.appendChild(msg);
 }
- 
+
 init();
 </script>
 </body>
